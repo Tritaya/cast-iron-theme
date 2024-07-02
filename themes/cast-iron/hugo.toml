@@ -2,20 +2,24 @@ baseURL = 'https://example.org/'
 languageCode = 'en-us'
 title = 'My New Hugo Site Theme'
 
-[[menus.main]]
-name = 'Home'
-pageRef = '/'
-weight = 10
+[params]
+  description = "Durable and versatile cast iron cookware for every kitchen."
+  og_image = "/images/og-image.jpg"
 
-[[menus.main]]
-name = 'Posts'
-pageRef = '/posts'
-weight = 20
-
-[[menus.main]]
-name = 'Tags'
-pageRef = '/tags'
-weight = 30
+[menu]
+  [[menu.main]]
+    name = "Home"
+    url = "/"
+    weight = 1
+  [[menu.main]]
+    name = "About"
+    url = "/about/"
+    weight = 2
+  [[menu.main]]
+    name = "Blog"
+    url = "/posts/"
+    weight = 3
+  
 
 [module]
   [module.hugoVersion]

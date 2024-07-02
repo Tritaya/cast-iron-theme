@@ -1,5 +1,26 @@
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width">
-<title>{{ if .IsHome }}{{ site.Title }}{{ else }}{{ printf "%s | %s" .Title site.Title }}{{ end }}</title>
-{{ partialCached "head/css.html" . }}
-{{ partialCached "head/js.html" . }}
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{ .Title }} | {{ .Site.Title }}</title>
+<meta name="description" content="{{ .Description | default .Site.Params.description }}">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="{{ .Permalink }}">
+<meta property="og:title" content="{{ .Title }} | {{ .Site.Title }}">
+<meta property="og:description" content="{{ .Description | default .Site.Params.description }}">
+<meta property="og:image" content="{{ .Site.Params.og_image | absURL }}">
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="{{ .Permalink }}">
+<meta property="twitter:title" content="{{ .Title }} | {{ .Site.Title }}">
+<meta property="twitter:description" content="{{ .Description | default .Site.Params.description }}">
+<meta property="twitter:image" content="{{ .Site.Params.og_image | absURL }}">
+
+<!-- Preload critical assets -->
+<link rel="preload" href="{{ (resources.Get "css/main.css" | resources.Minify | resources.Fingerprint).Permalink }}" as="style">
+<link rel="preload" href="{{ (resources.Get "js/main.js" | resources.Minify | resources.Fingerprint).Permalink }}" as="script">
+
+<!-- Load styles -->
+{{ $style := resources.Get "css/main.css" | resources.Minify | resources.Fingerprint }}
+<link rel="stylesheet" href="{{ $style.Permalink }}">

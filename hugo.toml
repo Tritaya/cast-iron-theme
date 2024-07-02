@@ -1,0 +1,39 @@
+baseURL = 'https://example.org/'
+languageCode = 'en-us'
+title = 'Blah Site'
+theme = 'cast-iron'
+
+[params]
+  description = "Blah site description"
+  og_image = "/images/og-image.jpg"
+  
+  [params.hero]
+    title = "The Cast Iron You Can Trust"
+    subtitle = "Durable, versatile, and perfect for every kitchen."
+    buttonText = "Shop Now"
+    buttonLink = "#"
+
+  [[params.features]]
+    title = "Pre-seasoned Cookware"
+    icon = "/images/seasoned-icon.svg"
+    description = "Ready to use right out of the box"
+
+  [[params.features]]
+    title = "Durable & Long-lasting"
+    icon = "/images/durable-icon.svg"
+    description = "Built to last for generations"
+
+  [[params.features]]
+    title = "Versatile Cooking"
+    icon = "/images/versatile-icon.svg"
+    description = "Perfect for stovetop, oven, and grill"
+
+  [[params.products]]
+    name = "10-inch Skillet"
+    image = "/images/skillet.jpg"
+    description = "Perfect for everyday cooking"
+
+  [[params.testimonials]]
+    name = "John Doe"
+    image = "/images/john-doe.jpg"
+    quote = "I've been using this cast iron skillet for years, and it just keeps getting better!"

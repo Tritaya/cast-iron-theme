@@ -1,22 +1,264 @@
-body {
-  color: #222;
-  font-family: sans-serif;
-  line-height: 1.5;
-  margin: 1rem;
-  max-width: 768px;
+/* Basic reset and general styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-header {
-  border-bottom: 1px solid #222;
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Hero Section */
+.hero {
+  background-image: url('/images/hero-bg.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+}
+
+.hero-content {
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 2rem;
+  border-radius: 10px;
+}
+
+.hero h1 {
+  font-size: 3rem;
   margin-bottom: 1rem;
 }
 
-footer {
-  border-top: 1px solid #222;
-  margin-top: 1rem;
+.hero p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
 }
 
-a {
-  color: #00e;
+.cta-button {
+  display: inline-block;
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
   text-decoration: none;
+  border-radius: 5px;
+  font-size: 1.1rem;
+  transition: background-color 0.3s;
+}
+
+.cta-button:hover {
+  background-color: #45a049;
+}
+
+/* Features Section */
+.features {
+  padding: 4rem 0;
+  background-color: #f4f4f4;
+}
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.feature-item {
+  text-align: center;
+}
+
+.feature-item img {
+  width: 64px;
+  height: 64px;
+  margin-bottom: 1rem;
+}
+
+.feature-item h3 {
+  margin-bottom: 0.5rem;
+}
+
+/* Product Showcase Section */
+.product-showcase {
+  padding: 4rem 0;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.product-item {
+  text-align: center;
+}
+
+.product-item img {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 1rem;
+}
+
+/* Testimonials Section */
+.testimonials {
+  padding: 4rem 0;
+  background-color: #f4f4f4;
+}
+
+.testimonial-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.testimonial-item {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.testimonial-item img {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  margin-bottom: 1rem;
+}
+
+/* Subscription Form */
+.subscription {
+  padding: 4rem 0;
+  background-color: #333;
+  color: white;
+  text-align: center;
+}
+
+.subscription-form {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.subscription-form input[type="email"] {
+  padding: 10px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px 0 0 5px;
+  width: 300px;
+  max-width: 100%;
+}
+
+.subscription-form button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.subscription-form button:hover {
+  background-color: #45a049;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+
+  .feature-grid,
+  .product-grid,
+  .testimonial-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .subscription-form {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .subscription-form input[type="email"],
+  .subscription-form button {
+    width: 100%;
+    max-width: 300px;
+    border-radius: 5px;
+  }
+
+  .subscription-form input[type="email"] {
+    margin-bottom: 10px;
+  }
+}
+
+/* Improved Accessibility */
+.skip-to-content {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: #000;
+  color: white;
+  padding: 8px;
+  z-index: 100;
+}
+
+.skip-to-content:focus {
+  top: 0;
+}
+
+/* Focus styles for interactive elements */
+a:focus,
+button:focus,
+input:focus {
+  outline: 2px solid #4CAF50;
+  outline-offset: 2px;
+}
+
+/* Content Styles */
+.content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.content h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.content time {
+    display: block;
+    margin-bottom: 1rem;
+    color: #666;
+}
+
+.post-list {
+    list-style: none;
+    padding: 0;
+}
+
+.post-list li {
+    margin-bottom: 2rem;
+}
+
+.post-list h2 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.post-list time {
+    font-size: 0.9rem;
 }

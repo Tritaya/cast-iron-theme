@@ -1,0 +1,71 @@
+{{ define "main" }}
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>{{ .Params.heroTitle | default "The Cast Iron You Can Trust" }}</h1>
+      <p>{{ .Params.heroSubtitle | default "Durable, versatile, and perfect for every kitchen." }}</p>
+      <a href="{{ .Params.heroButtonLink | default "#" }}" class="cta-button">{{ .Params.heroButtonText | default "Shop Now" }}</a>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="features">
+    <div class="container">
+      <div class="feature-grid">
+        {{ range .Params.features }}
+          <div class="feature-item">
+            <img src="{{ .icon }}" alt="{{ .title }} icon">
+            <h3>{{ .title }}</h3>
+            <p>{{ .description }}</p>
+          </div>
+        {{ end }}
+      </div>
+    </div>
+  </section>
+
+  <!-- Product Showcase Section -->
+  <section class="product-showcase">
+    <div class="container">
+      <h2>Cookware for Any Occasion</h2>
+      <div class="product-grid">
+        {{ range .Params.products }}
+          <div class="product-item">
+            <img class="lazy" src="/images/placeholder.jpg" data-src="{{ .image }}" alt="{{ .name }}">
+<!-- <img src="{{ .image }}" alt="{{ .name }}"> -->
+            <h3>{{ .name }}</h3>
+            <p>{{ .description }}</p>
+          </div>
+        {{ end }}
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section class="testimonials">
+    <div class="container">
+      <h2>Our Client's Thoughts</h2>
+      <div class="testimonial-grid">
+        {{ range .Params.testimonials }}
+          <div class="testimonial-item">
+            <img class="lazy" src="/images/placeholder.jpg" data-src="{{ .image }}" alt="{{ .name }}">
+<!-- <img src="{{ .image }}" alt="{{ .name }}"> -->
+            <h3>{{ .name }}</h3>
+            <p>{{ .quote }}</p>
+          </div>
+        {{ end }}
+      </div>
+    </div>
+  </section>
+
+  <!-- Email Subscription Form -->
+  <section class="subscription">
+    <div class="container">
+      <h2>Subscribe and Get a Discount</h2>
+      <form action="#" method="POST" class="subscription-form">
+        <input type="email" name="email" placeholder="Enter your email" required>
+        <button type="submit">Subscribe</button>
+      </form>
+    </div>
+  </section>
+
+{{ end }}
