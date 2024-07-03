@@ -17,41 +17,46 @@ body {
 }
 
 /* Navigation Styles */
-nav {
+#main-nav {
   background-color: #333;
   padding: 1rem 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
 }
 
-nav .container {
+#main-nav .container {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-nav ul {
+#main-nav ul {
   list-style-type: none;
   display: flex;
   margin: 0;
   padding: 0;
 }
 
-nav ul li {
+#main-nav ul li {
   margin-left: 1.5rem;
 }
 
-nav ul li:first-child {
+#main-nav ul li:first-child {
   margin-left: 0;
 }
 
-nav a {
+#main-nav a {
   color: white;
   text-decoration: none;
   font-size: 1rem;
   transition: color 0.3s;
 }
 
-nav a:hover,
-nav a:focus {
+#main-nav a:hover,
+#main-nav a:focus {
   color: #4CAF50;
 }
 
@@ -69,7 +74,7 @@ nav a:focus {
     display: block;
   }
 
-  nav ul {
+  #main-nav ul {
     display: none;
     flex-direction: column;
     width: 100%;
@@ -80,15 +85,21 @@ nav a:focus {
     padding: 1rem 0;
   }
 
-  nav ul.show {
+  #main-nav ul.show {
     display: flex;
   }
 
-  nav ul li {
+  #main-nav ul li {
     margin: 0.5rem 0;
     text-align: center;
   }
 }
+
+/* Adjust hero section to account for fixed nav */
+.hero {
+  padding-top: 60px; /* Adjust this value based on your nav height */
+}
+
 
 /* Hero Section */
 .hero {
