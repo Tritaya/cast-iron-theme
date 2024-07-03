@@ -38,5 +38,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
   navToggle.addEventListener('click', function() {
     navMenu.classList.toggle('show');
+    // Prevent body scrolling when menu is open
+    document.body.classList.toggle('nav-open');
   });
 });

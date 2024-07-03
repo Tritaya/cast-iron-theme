@@ -95,6 +95,10 @@ body {
   }
 }
 
+body.nav-open {
+  overflow: hidden;
+}
+
 /* Adjust hero section to account for fixed nav */
 .hero {
   padding-top: 60px; /* Adjust this value based on your nav height */
