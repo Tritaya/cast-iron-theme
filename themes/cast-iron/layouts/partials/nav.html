@@ -1,7 +1,1 @@
-<nav>
-  <ul>
-    {{ range .Site.Menus.main }}
-      <li><a href="{{ .URL }}">{{ .Name }}</a></li>
-    {{ end }}
-  </ul>
-</nav>
+<nav>  <div class="container">    <a href="/" class="logo">Your Logo</a>    <button class="nav-toggle" aria-label="Toggle navigation">      ☰    </button>    <ul class="nav-menu">      {{ $currentPage := . }}      {{ range .Site.Menus.main }}        <li><a href="{{ .URL }}" {{ if $currentPage.IsMenuCurrent "main" . }}class="active"{{ end }}>{{ .Name }}</a></li>      {{ end }}    </ul>  </div></nav>
