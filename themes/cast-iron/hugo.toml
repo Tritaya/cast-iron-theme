@@ -5,7 +5,7 @@ title = 'My New Hugo Site Theme'
 [params]
   description = "Durable and versatile cast iron cookware for every kitchen."
   og_image = "/images/og-image.jpg"
-  showNavMenu = true
+  showNavMenu = false
 
 [menu]
   [[menu.main]]
