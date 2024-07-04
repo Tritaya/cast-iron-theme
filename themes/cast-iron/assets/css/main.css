@@ -206,6 +206,98 @@ body {
   margin-bottom: 1rem;
 }
 
+/* Brand Story Section */
+.brand-story {
+  padding: 4rem 0;
+  background-color: #f9f9f9;
+}
+
+.brand-story-content {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* Product Care Section */
+.product-care {
+  padding: 4rem 0;
+}
+
+.care-instructions {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.care-item {
+  flex-basis: calc(33.333% - 2rem);
+  margin: 1rem;
+  text-align: center;
+}
+
+.care-item img {
+  width: 64px;
+  height: 64px;
+  margin-bottom: 1rem;
+}
+
+/* Use Cases Section */
+.use-cases {
+  padding: 4rem 0;
+  background-color: #f4f4f4;
+}
+
+.use-cases-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.use-case-item {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.use-case-item img {
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+  margin-bottom: 1rem;
+}
+
+/* Awards Section */
+.awards {
+  padding: 4rem 0;
+}
+
+.awards-grid {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.award-item {
+  text-align: center;
+}
+
+.award-item img {
+  width: 100px;
+  height: auto;
+  margin-bottom: 1rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .care-item,
+  .use-case-item {
+    flex-basis: 100%;
+  }
+}
+
 /* Testimonials Section */
 .testimonials {
   padding: 4rem 0;
