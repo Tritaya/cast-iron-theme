@@ -23,22 +23,24 @@
     </div>
   </section>
 
-  <!-- Product Showcase Section -->
-  <section class="product-showcase">
-    <div class="container">
-      <h2>Cookware for Any Occasion</h2>
-      <div class="product-grid">
-        {{ range .Params.products }}
-          <div class="product-item">
-            <img class="lazy" src="/images/placeholder.jpg" data-src="{{ .image }}" alt="{{ .name }}">
-<!-- <img src="{{ .image }}" alt="{{ .name }}"> -->
-            <h3>{{ .name }}</h3>
-            <p>{{ .description }}</p>
-          </div>
-        {{ end }}
-      </div>
-    </div>
-  </section>
+	<!-- Product Showcase Section -->
+	{{ if .Params.productShowcase }}
+	<section class="product-showcase">
+	  <div class="container">
+		<h2>{{ .Params.productShowcase.title }}</h2>
+		<div class="product-categories">
+		  {{ range .Params.productShowcase.categories }}
+			<div class="product-category">
+			  <img class="lazy" src="/images/placeholder.jpg" data-src="{{ .image }}" alt="{{ .name }}">
+			  <h3>{{ .name }}</h3>
+			  <p>{{ .description }}</p>
+			  <a href="{{ .link }}" class="btn">{{ .buttonText | default "Shop Now" }}</a>
+			</div>
+		  {{ end }}
+		</div>
+	  </div>
+	</section>
+	{{ end }}
 
 	<!--Extended Brand Story   -->
 	{{ if .Params.brandStory }}
