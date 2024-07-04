@@ -33,6 +33,19 @@ productShowcase:
       image: "/images/grill-pan.jpg"
       description: "Get perfect grill marks indoors"
       link: "#"
+brandStory:
+  title: "Bringing Centuries of Cast Iron Mastery"
+  content: |
+    Our journey began over a century ago... [Your brand story here]
+productCare:
+  title: "Protect Your Cookware"
+  instructions:
+    - title: "Season Regularly"
+      icon: "/images/season-icon.svg"
+      description: "Apply a thin layer of oil and bake to maintain the non-stick surface."
+    - title: "Clean Properly"
+      icon: "/images/clean-icon.svg"
+      description: "Use hot water and a stiff brush. Avoid soap for best results."
 testimonials:
   - name: "John Doe"
     image: "/images/john-doe.jpg"
@@ -43,4 +56,11 @@ testimonials:
   - name: "Mike Johnson"
     image: "/images/mike-johnson.jpg"
     quote: "These pans are built to last. I'm passing mine down to my children!"
+awards:
+  title: "Award-Winning Quality"
+  items:
+    - name: "Best Cookware 2023"
+      image: "/images/award1.svg"
+    - name: "Sustainability Award"
+      image: "/images/award2.svg"
 ---
