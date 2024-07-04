@@ -40,6 +40,55 @@
     </div>
   </section>
 
+<!-- Brand Story   -->
+	{{ if .Params.brandStory }}
+	<section class="brand-story">
+	  <div class="container">
+		<h2>{{ .Params.brandStory.title }}</h2>
+		<div class="brand-story-content">
+		  {{ .Params.brandStory.content | markdownify }}
+		</div>
+	  </div>
+	</section>
+	{{ end }}  
+	
+	<!-- Product Care -->
+	{{ if .Params.productCare }}
+	<section class="product-care">
+	  <div class="container">
+		<h2>{{ .Params.productCare.title }}</h2>
+		<div class="care-instructions">
+		  {{ range .Params.productCare.instructions }}
+			<div class="care-item">
+			  <img src="{{ .icon }}" alt="{{ .title }}">
+			  <h3>{{ .title }}</h3>
+			  <p>{{ .description }}</p>
+			</div>
+		  {{ end }}
+		</div>
+	  </div>
+	</section>
+	{{ end }}
+
+	<!-- Extended Product Showcase -->
+	{{ if .Params.productShowcase }}
+	<section class="product-showcase">
+	  <div class="container">
+		<h2>{{ .Params.productShowcase.title }}</h2>
+		<div class="product-categories">
+		  {{ range .Params.productShowcase.categories }}
+			<div class="product-category">
+			  <img src="{{ .image }}" alt="{{ .name }}">
+			  <h3>{{ .name }}</h3>
+			  <p>{{ .description }}</p>
+			  <a href="{{ .link }}" class="btn">Shop Now</a>
+			</div>
+		  {{ end }}
+		</div>
+	  </div>
+	</section>
+	{{ end }}
+
   <!-- Testimonials Section -->
   <section class="testimonials">
     <div class="container">
