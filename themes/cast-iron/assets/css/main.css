@@ -16,8 +16,8 @@ body {
   padding: 0 20px;
 }
 
-/* Navigation Styles */
-#main-nav {
+/* Header Styles */
+#site-header {
   background-color: #333;
   padding: 1rem 0;
   position: fixed;
@@ -27,12 +27,20 @@ body {
   z-index: 1000;
 }
 
-#main-nav .container {
+#site-header .container {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
+.logo {
+  color: white;
+  text-decoration: none;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+/* Navigation Styles */
 #main-nav ul {
   list-style-type: none;
   display: flex;
@@ -95,14 +103,12 @@ body {
   }
 }
 
-body.nav-open {
-  overflow: hidden;
+/* Adjust main content padding */
+body #main-content {
+  padding-top: 60px; /* Adjust based on your header height */
 }
 
-/* Adjust main content padding when nav is present */
-body.has-nav-menu #main-content {
-  padding-top: 60px; /* Adjust based on your nav height */
-}
+/* ... (rest of your existing styles) ... */
 
 /* Adjust hero section to account for fixed nav */
 .hero {
