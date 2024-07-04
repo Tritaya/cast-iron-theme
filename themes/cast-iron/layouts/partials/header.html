@@ -1,3 +1,1 @@
-<header>
-  <h1>{{ .Site.Title }}</h1>
-</header>
+<header id="site-header">  <div class="container">    <a href="/" class="logo">Your Logo</a>    {{ if .Site.Params.showNavMenu }}      <button class="nav-toggle" aria-label="Toggle navigation">        ☰      </button>      <nav id="main-nav">        <ul class="nav-menu">          {{ $currentPage := . }}          {{ range .Site.Menus.main }}            <li><a href="{{ .URL }}" {{ if $currentPage.IsMenuCurrent "main" . }}class="active"{{ end }}>{{ .Name }}</a></li>          {{ end }}        </ul>      </nav>    {{ end }}  </div></header>
