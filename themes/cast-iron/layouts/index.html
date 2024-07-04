@@ -72,18 +72,17 @@
 	</section>
 	{{ end }}
 
-	<!-- Extended Product Showcase -->
-	{{ if .Params.productShowcase }}
-	<section class="product-showcase">
+	<!-- Use Cases Section -->
+	{{ if .Params.useCases }}
+	<section class="use-cases">
 	  <div class="container">
-		<h2>{{ .Params.productShowcase.title }}</h2>
-		<div class="product-categories">
-		  {{ range .Params.productShowcase.categories }}
-			<div class="product-category">
-			  <img src="{{ .image }}" alt="{{ .name }}">
+		<h2>{{ .Params.useCases.title }}</h2>
+		<div class="use-cases-grid">
+		  {{ range .Params.useCases.cases }}
+			<div class="use-case-item">
+			  <img class="lazy" src="/images/placeholder.jpg" data-src="{{ .image }}" alt="{{ .name }}">
 			  <h3>{{ .name }}</h3>
 			  <p>{{ .description }}</p>
-			  <a href="{{ .link }}" class="btn">Shop Now</a>
 			</div>
 		  {{ end }}
 		</div>
