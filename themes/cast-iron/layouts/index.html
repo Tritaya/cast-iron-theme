@@ -29,7 +29,7 @@
 	  <div class="container">
 		<h2>{{ .Params.productShowcase.title }}</h2>
 		<div class="product-grid">
-		  {{ range .Params.productShowcase.categories }}
+		  {{ range .Params.productShowcase.products }}
 			<div class="product-item">
 			  <img class="lazy" src="/images/placeholder.jpg" data-src="{{ .image }}" alt="{{ .name }}">
 			  <h3>{{ .name }}</h3>
