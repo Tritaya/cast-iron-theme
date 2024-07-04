@@ -33,6 +33,18 @@ productShowcase:
       image: "/images/grill-pan.jpg"
       description: "Get perfect grill marks indoors"
       link: "#"
+useCases:
+  title: "Cookware for Any Occasion"
+  cases:
+    - name: "Stovetop Cooking"
+      image: "/images/stovetop-cooking.jpg"
+      description: "Perfect for searing, sautéing, and frying"
+    - name: "Oven Baking"
+      image: "/images/oven-baking.jpg"
+      description: "Ideal for casseroles, bread, and roasts"
+    - name: "Outdoor Grilling"
+      image: "/images/outdoor-grilling.jpg"
+      description: "Great for campfire cooking and BBQs"
 brandStory:
   title: "Bringing Centuries of Cast Iron Mastery"
   content: |
