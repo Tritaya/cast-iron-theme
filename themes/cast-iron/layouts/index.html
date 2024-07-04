@@ -117,4 +117,22 @@
     </div>
   </section>
 
+	<!-- Awards Section -->
+	{{ if .Params.awards }}
+	<section class="awards">
+	  <div class="container">
+		<h2>{{ .Params.awards.title }}</h2>
+		<div class="awards-grid">
+		  {{ range .Params.awards.items }}
+			<div class="award-item">
+			  <img src="{{ .image }}" alt="{{ .name }}">
+			  <p>{{ .name }}</p>
+			</div>
+		  {{ end }}
+		</div>
+	  </div>
+	</section>
+	{{ end }}
+
 {{ end }}
+
