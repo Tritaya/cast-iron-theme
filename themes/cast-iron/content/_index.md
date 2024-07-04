@@ -72,7 +72,7 @@ awards:
   title: "Award-Winning Quality"
   items:
     - name: "Best Cookware 2023"
-      image: "/images/award1.svg"
+      image: "/images/durable-icon.svg"
     - name: "Sustainability Award"
-      image: "/images/award2.svg"
+      image: "/images/durable-icon.svg"
 ---
