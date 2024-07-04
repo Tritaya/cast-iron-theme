@@ -27,7 +27,9 @@
 	{{ if .Params.productShowcase }}
 	<section class="product-showcase">
 	  <div class="container">
-		<h2>{{ .Params.productShowcase.title }}</h2>
+		<div class="section-title">
+			<h2>{{ .Params.productShowcase.title }}</h2>
+		</div>
 		<div class="product-grid">
 		  {{ range .Params.productShowcase.products }}
 			<div class="product-item">
