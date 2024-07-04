@@ -6,6 +6,16 @@ title = 'My New Hugo Site Theme'
   description = "Durable and versatile cast iron cookware for every kitchen."
   og_image = "/images/og-image.jpg"
   showNavMenu = false
+  footerColumns = [
+    {title = "Shop", links = [{name = "Skillets", url = "/products/skillets"}, {name = "Dutch Ovens", url = "/products/dutch-ovens"}]},
+    {title = "About", links = [{name = "Our Story", url = "/about"}, {name = "Blog", url = "/blog"}]},
+    {title = "Support", links = [{name = "FAQs", url = "/faqs"}, {name = "Contact", url = "/contact"}]}
+  ]
+  socialLinks = [
+    {name = "Facebook", url = "https://facebook.com/yourcompany"},
+    {name = "Instagram", url = "https://instagram.com/yourcompany"},
+    {name = "Twitter", url = "https://twitter.com/yourcompany"}
+  ]
 
 [menu]
   [[menu.main]]
