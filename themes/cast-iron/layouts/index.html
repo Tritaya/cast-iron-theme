@@ -28,9 +28,9 @@
 	<section class="product-showcase">
 	  <div class="container">
 		<h2>{{ .Params.productShowcase.title }}</h2>
-		<div class="product-categories">
+		<div class="product-grid">
 		  {{ range .Params.productShowcase.categories }}
-			<div class="product-category">
+			<div class="product-item">
 			  <img class="lazy" src="/images/placeholder.jpg" data-src="{{ .image }}" alt="{{ .name }}">
 			  <h3>{{ .name }}</h3>
 			  <p>{{ .description }}</p>
