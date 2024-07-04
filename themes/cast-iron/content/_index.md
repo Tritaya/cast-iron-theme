@@ -53,10 +53,10 @@ productCare:
   title: "Protect Your Cookware"
   instructions:
     - title: "Season Regularly"
-      icon: "/images/season-icon.svg"
+      icon: "/images/durable-icon.svg"
       description: "Apply a thin layer of oil and bake to maintain the non-stick surface."
     - title: "Clean Properly"
-      icon: "/images/clean-icon.svg"
+      icon: "/images/durable-icon.svg"
       description: "Use hot water and a stiff brush. Avoid soap for best results."
 testimonials:
   - name: "John Doe"
