@@ -91,6 +91,7 @@ body {
     left: 0;
     background-color: #333;
     padding: 1rem 0;
+	transition: display 0.3s ease;
   }
 
   #main-nav ul.show {
@@ -104,20 +105,13 @@ body {
 }
 
 /* Adjust main content padding */
-body #main-content {
+#main-content {
   padding-top: 60px; /* Adjust based on your header height */
 }
 
-/* ... (rest of your existing styles) ... */
-
-/* Adjust hero section to account for fixed nav */
-.hero {
-  padding-top: 60px; /* Adjust this value based on your nav height */
-}
-
-
 /* Hero Section */
 .hero {
+  padding-top: 60px; /* Adjust this value based on your nav height */
   background-image: url('/images/hero-bg.jpg');
   background-size: cover;
   background-position: center;
@@ -318,7 +312,7 @@ body #main-content {
   border-radius: 0 0 5px 5px;
   opacity: 0.8;
   transition: opacity 0.3s, transform 0.3s;
-  z-index: 1000;
+  z-index: 1001;
 }
 
 .skip-to-content:hover,
