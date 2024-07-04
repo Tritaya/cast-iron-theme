@@ -48,7 +48,9 @@
 	{{ if .Params.brandStory }}
 	<section class="brand-story">
 	  <div class="container">
-		<h2>{{ .Params.brandStory.title }}</h2>
+		<div class="section-title">
+			<h2>{{ .Params.brandStory.title }}</h2>
+		</div>
 		<div class="brand-story-content">
 		  {{ .Params.brandStory.content | markdownify }}
 		</div>
@@ -60,7 +62,9 @@
 	{{ if .Params.productCare }}
 	<section class="product-care">
 	  <div class="container">
-		<h2>{{ .Params.productCare.title }}</h2>
+		<div class="section-title">
+			<h2>{{ .Params.productCare.title }}</h2>
+		</div>
 		<div class="care-instructions">
 		  {{ range .Params.productCare.instructions }}
 			<div class="care-item">
@@ -78,7 +82,9 @@
 	{{ if .Params.useCases }}
 	<section class="use-cases">
 	  <div class="container">
-		<h2>{{ .Params.useCases.title }}</h2>
+		<div class="section-title">
+			<h2>{{ .Params.useCases.title }}</h2>
+		</div>
 		<div class="use-cases-grid">
 		  {{ range .Params.useCases.cases }}
 			<div class="use-case-item">
@@ -95,7 +101,9 @@
   <!-- Testimonials Section -->
   <section class="testimonials">
     <div class="container">
-      <h2>Our Client's Thoughts</h2>
+		<div class="section-title">
+			<h2>Our Client's Thoughts</h2>
+		</div>
       <div class="testimonial-grid">
         {{ range .Params.testimonials }}
           <div class="testimonial-item">
@@ -124,7 +132,9 @@
 	{{ if .Params.awards }}
 	<section class="awards">
 	  <div class="container">
-		<h2>{{ .Params.awards.title }}</h2>
+		<div class="section-title">
+			<h2>{{ .Params.awards.title }}</h2>
+		</div>
 		<div class="awards-grid">
 		  {{ range .Params.awards.items }}
 			<div class="award-item">
