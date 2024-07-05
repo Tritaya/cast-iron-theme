@@ -9,7 +9,7 @@
   </section>
 
   <!-- Features Section -->
-  <section class="features"  id="main-content">
+  <section class="features">
     <div class="container">
       <div class="feature-grid">
         {{ range .Params.features }}
@@ -102,7 +102,7 @@
 	{{ if .Content }}
 	<section class="additional-content">
 	<div class="container">
-		<div class="content-wrapper">
+		<div class="content-wrapper"  id="main-content">
 		{{ .Content }}
 		</div>
 	</div>
