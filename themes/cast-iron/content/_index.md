@@ -15,7 +15,7 @@ features:
     icon: "/images/versatile-icon.svg"
     description: "Perfect for stovetop, oven, and grill"
 productShowcase:
-  title: "Cookware for Any Occasion"
+  title: "Cookware Products"
   products:
     - name: "10-inch Skillet"
       image: "/images/skillet.jpg"
