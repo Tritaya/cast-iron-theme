@@ -240,6 +240,28 @@ body {
   /* z-index: 0; */
 /* } */
 
+/* Button Styles */
+.btn {
+  display: inline-block;
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  transition: background-color 0.3s, transform 0.2s;
+  border: none;
+  cursor: pointer;
+}
+
+.btn:hover, .btn:focus {
+  background-color: #45a049;
+  transform: translateY(-2px);
+}
+
+.btn:active {
+  transform: translateY(0);
+}
 /* Product Showcase Section */
 .product-showcase {
   padding: 4rem 0;
