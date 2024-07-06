@@ -47,17 +47,23 @@ body {
 
 /* Navigation Styles */
 #main-nav {
-  position: absolute;
-  top: 100%;
+  position: fixed;
+  top: 60px; /* Adjust this value to match your header height */
   left: 0;
   right: 0;
   background-color: #333;
   padding: 1rem 0;
   display: none;
+  z-index: 999;
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+  transform: translateY(-100%);
+  opacity: 0;
 }
 
 #main-nav.show {
   display: block;
+  transform: translateY(0);
+  opacity: 1;
 }
 
 #main-nav ul {
@@ -106,6 +112,7 @@ body {
     display: block;
     padding: 0;
     background-color: transparent;
+    transform: none;
   }
 
   #main-nav ul {
@@ -116,6 +123,7 @@ body {
     margin-left: 1.5rem;
   }
 }
+
 
 /* Adjust based on your header height */
 /* #main-content { */

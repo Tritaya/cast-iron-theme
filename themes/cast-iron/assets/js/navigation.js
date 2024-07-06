@@ -9,6 +9,9 @@ document.addEventListener('DOMContentLoaded', function() {
     navToggle.addEventListener('click', function() {
       navMenu.classList.toggle('show');
       navToggle.classList.toggle('active');
+      
+      // Prevent scrolling when menu is open
+      document.body.classList.toggle('menu-open');
     });
   }
 
@@ -19,6 +22,11 @@ document.addEventListener('DOMContentLoaded', function() {
     if (scrollTop > lastScrollTop && scrollTop > 50) {
       // Scrolling down & not at the top
       header.classList.add('hidden');
+      if (navMenu.classList.contains('show')) {
+        navMenu.classList.remove('show');
+        navToggle.classList.remove('active');
+        document.body.classList.remove('menu-open');
+      }
     } else {
       // Scrolling up or at the top
       header.classList.remove('hidden');
