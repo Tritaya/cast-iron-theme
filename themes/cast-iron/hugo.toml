@@ -6,16 +6,46 @@ title = 'My New Hugo Site Theme'
   description = "Durable and versatile cast iron cookware for every kitchen."
   og_image = "/images/og-image.jpg"
   showNavMenu = false
-  footerColumns = [
-    {title = "Shop", links = [{name = "Skillets", url = "/products/skillets"}, {name = "Dutch Ovens", url = "/products/dutch-ovens"}]},
-    {title = "About", links = [{name = "Our Story", url = "/about"}, {name = "Blog", url = "/blog"}]},
-    {title = "Support", links = [{name = "FAQs", url = "/faqs"}, {name = "Contact", url = "/contact"}]}
+  
+  contact_address1 = "The Hub Nobel Way"
+  contact_address2 = "Birmingham, United Kingdom"
+  contact_postcode = "B6 7EU"
+  contact_phone = "+44 (0) 121 604 6000"
+  
+  affiliateDisclosure = "This is a fan website and is not endorsed by or affiliated with MasterClass Premium Cookware. The address above is the official headquarters of MasterClass Premium Cookware."
+
+[[params.footerColumns]]
+  title = "Shop"
+  links = [
+    {name = "Skillets", url = "/products/skillets"},
+    {name = "Dutch Ovens", url = "/products/dutch-ovens"}
   ]
-  socialLinks = [
-    {name = "Facebook", url = "https://facebook.com/yourcompany"},
-    {name = "Instagram", url = "https://instagram.com/yourcompany"},
-    {name = "Twitter", url = "https://twitter.com/yourcompany"}
+
+[[params.footerColumns]]
+  title = "About"
+  links = [
+    {name = "Our Story", url = "/about"},
+    {name = "Blog", url = "/blog"}
   ]
+
+[[params.footerColumns]]
+  title = "Support"
+  links = [
+    {name = "FAQs", url = "/faqs"},
+    {name = "Contact", url = "/contact"}
+  ]
+
+[[params.socialLinks]]
+  name = "Facebook"
+  url = "https://facebook.com/yourcompany"
+
+[[params.socialLinks]]
+  name = "Instagram"
+  url = "https://instagram.com/yourcompany"
+
+[[params.socialLinks]]
+  name = "Twitter"
+  url = "https://twitter.com/yourcompany"
 
 [menu]
   [[menu.main]]
@@ -31,7 +61,6 @@ title = 'My New Hugo Site Theme'
     url = "/posts/"
     weight = 3
   
-
 [module]
   [module.hugoVersion]
     extended = false
