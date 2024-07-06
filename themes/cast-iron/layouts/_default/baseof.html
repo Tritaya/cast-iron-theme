@@ -18,5 +18,9 @@
     
     {{ $script := resources.Get "js/main.js" | resources.Minify | resources.Fingerprint }}
     <script src="{{ $script.Permalink }}"></script>
+	
+    {{ $navScript := resources.Get "js/navigation.js" | resources.Minify | resources.Fingerprint }}
+    <script src="{{ $navScript.Permalink }}"></script>
+	
 </body>
 </html>
