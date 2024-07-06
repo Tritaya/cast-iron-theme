@@ -1,13 +1,14 @@
 document.addEventListener('DOMContentLoaded', function() {
   const header = document.querySelector('.site-header');
   const navToggle = document.querySelector('.nav-toggle');
-  const navMenu = document.querySelector('.nav-menu');
+  const navMenu = document.querySelector('#main-nav');
   let lastScrollTop = 0;
 
   // Handle navigation toggle on mobile
   if (navToggle && navMenu) {
     navToggle.addEventListener('click', function() {
       navMenu.classList.toggle('show');
+      navToggle.classList.toggle('active');
     });
   }
 
