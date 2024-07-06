@@ -5,7 +5,7 @@ title = 'My New Hugo Site Theme'
 [params]
   description = "Durable and versatile cast iron cookware for every kitchen."
   og_image = "/images/og-image.jpg"
-  showNavMenu = true
+  showNavMenu = false
   footerColumns = [
     {title = "Shop", links = [{name = "Skillets", url = "/products/skillets"}, {name = "Dutch Ovens", url = "/products/dutch-ovens"}]},
     {title = "About", links = [{name = "Our Story", url = "/about"}, {name = "Blog", url = "/blog"}]},
