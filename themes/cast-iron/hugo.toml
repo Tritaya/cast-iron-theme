@@ -36,17 +36,17 @@ title = 'My New Hugo Site Theme'
     {name = "Contact", url = "/contact"}
   ]
 
-[[params.socialLinks]]
-  name = "Facebook"
-  url = "https://facebook.com/yourcompany"
-
-[[params.socialLinks]]
-  name = "Instagram"
-  url = "https://instagram.com/yourcompany"
-
-[[params.socialLinks]]
-  name = "Twitter"
-  url = "https://twitter.com/yourcompany"
+#[[params.socialLinks]]
+#  name = "Facebook"
+#  url = "https://facebook.com/yourcompany"
+#
+#[[params.socialLinks]]
+#  name = "Instagram"
+#  url = "https://instagram.com/yourcompany"
+#
+#[[params.socialLinks]]
+#  name = "Twitter"
+#  url = "https://twitter.com/yourcompany"
 
 [menu]
   [[menu.main]]
