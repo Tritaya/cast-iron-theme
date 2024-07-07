@@ -49,6 +49,11 @@ body {
   font-weight: bold;
 }
 
+.logo img {
+	max-height: 50px;
+	width: auto;
+}
+
 /* Navigation Styles */
 #main-nav {
   position: fixed;
