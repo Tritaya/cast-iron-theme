@@ -6,6 +6,7 @@ title = 'My New Hugo Site Theme'
   description = "Durable and versatile cast iron cookware for every kitchen."
   og_image = "/images/og-image.jpg"
   showNavMenu = false
+  logo = "/images/logo.png"
   
   contact_address1 = "The Hub Nobel Way"
   contact_address2 = "Birmingham, United Kingdom"
