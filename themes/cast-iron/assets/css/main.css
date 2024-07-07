@@ -43,6 +43,8 @@ body {
 }
 
 .logo {
+  display: flex;
+  align-items: center;
   color: white;
   text-decoration: none;
   font-size: 1.5rem;
@@ -52,6 +54,7 @@ body {
 .logo img {
 	max-height: 50px;
 	width: auto;
+	/* margin-left: 10px; */
 }
 
 /* Navigation Styles */
