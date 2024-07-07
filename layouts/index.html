@@ -1,0 +1,162 @@
+{{ define "main" }}
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>{{ .Params.heroTitle | default "The Cast Iron You Can Trust" }}</h1>
+      <p>{{ .Params.heroSubtitle | default "Durable, versatile, and perfect for every kitchen." }}</p>
+      <a href="{{ .Params.heroButtonLink | default "#" }}" class="cta-button">{{ .Params.heroButtonText | default "Shop Now" }}</a>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="features">
+    <div class="container">
+      <div class="feature-grid">
+        {{ range .Params.features }}
+          <div class="feature-item">
+            <img src="{{ .icon }}" alt="{{ .title }} icon">
+            <h3>{{ .title }}</h3>
+            <p>{{ .description }}</p>
+          </div>
+        {{ end }}
+      </div>
+    </div>
+  </section>
+
+	<!-- Product Showcase Section -->
+	{{ if .Params.productShowcase }}
+	<section class="product-showcase">
+	  <div class="container">
+		<div class="section-title">
+			<h2>{{ .Params.productShowcase.title }}</h2>
+		</div>
+		<div class="product-grid">
+		  {{ range .Params.productShowcase.products }}
+			<div class="product-item">
+			  <img class="lazy" src="/images/placeholder.jpg" data-src="{{ .image }}" alt="{{ .name }}">
+			  <h3>{{ .name }}</h3>
+			  <p>{{ .description }}</p>
+			  <a href="{{ .link }}" class="btn">{{ .buttonText | default "Shop Now" }}</a>
+			</div>
+		  {{ end }}
+		</div>
+	  </div>
+	</section>
+	{{ end }}
+
+	<!--Extended Brand Story   -->
+	{{ if .Params.brandStory }}
+	<section class="brand-story">
+	  <div class="container">
+		<div class="section-title">
+			<h2>{{ .Params.brandStory.title }}</h2>
+		</div>
+		<div class="brand-story-content">
+		  {{ .Params.brandStory.content | markdownify }}
+		</div>
+	  </div>
+	</section>
+	{{ end }}  
+	
+	<!-- Extended Product Care -->
+	{{ if .Params.productCare }}
+	<section class="product-care">
+	  <div class="container">
+		<div class="section-title">
+			<h2>{{ .Params.productCare.title }}</h2>
+		</div>
+		<div class="care-instructions">
+		  {{ range .Params.productCare.instructions }}
+			<div class="care-item">
+			  <img src="{{ .icon }}" alt="{{ .title }}">
+			  <h3>{{ .title }}</h3>
+			  <p>{{ .description }}</p>
+			</div>
+		  {{ end }}
+		</div>
+	  </div>
+	</section>
+	{{ end }}
+
+	<!-- Use Cases Section -->
+	{{ if .Params.useCases }}
+	<section class="use-cases">
+	  <div class="container">
+		<div class="section-title">
+			<h2>{{ .Params.useCases.title }}</h2>
+		</div>
+		<div class="use-cases-grid">
+		  {{ range .Params.useCases.cases }}
+			<div class="use-case-item">
+			  <img class="lazy" src="/images/placeholder.jpg" data-src="{{ .image }}" alt="{{ .name }}">
+			  <h3>{{ .name }}</h3>
+			  <p>{{ .description }}</p>
+			</div>
+		  {{ end }}
+		</div>
+	  </div>
+	</section>
+	{{ end }}
+
+	<!-- Content Section -->
+	{{ if .Content }}
+	<section class="additional-content"  id="main-content">
+	<div class="container">
+		<div class="content-wrapper">
+		{{ .Content }}
+		</div>
+	</div>
+	</section>
+	{{ end }}
+
+  <!-- Testimonials Section -->
+  <section class="testimonials">
+    <div class="container">
+		<div class="section-title">
+			<h2>Our Client's Thoughts</h2>
+		</div>
+      <div class="testimonial-grid">
+        {{ range .Params.testimonials }}
+          <div class="testimonial-item">
+            <img class="lazy" src="/images/placeholder.jpg" data-src="{{ .image }}" alt="{{ .name }}">
+<!-- <img src="{{ .image }}" alt="{{ .name }}"> -->
+            <h3>{{ .name }}</h3>
+            <p>{{ .quote }}</p>
+          </div>
+        {{ end }}
+      </div>
+    </div>
+  </section>
+
+  <!-- Email Subscription Form -->
+  <section class="subscription">
+    <div class="container">
+      <h2>Subscribe and Get a Discount</h2>
+      <form action="#" method="POST" class="subscription-form">
+        <input type="email" name="email" placeholder="Enter your email" required>
+        <button type="submit">Subscribe</button>
+      </form>
+    </div>
+  </section>
+
+	<!-- Extended Awards Section -->
+	{{ if .Params.awards }}
+	<section class="awards">
+	  <div class="container">
+		<div class="section-title">
+			<h2>{{ .Params.awards.title }}</h2>
+		</div>
+		<div class="awards-grid">
+		  {{ range .Params.awards.items }}
+			<div class="award-item">
+			  <img src="{{ .image }}" alt="{{ .name }}">
+			  <p>{{ .name }}</p>
+			</div>
+		  {{ end }}
+		</div>
+	  </div>
+	</section>
+	{{ end }}
+
+{{ end }}
+

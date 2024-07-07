@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {{ partial "head.html" .}}
+</head>
+<body class="{{ if not .IsHome }}page-content{{ end }}">
+	{{ if .IsHome }}
+    <a href="#main-content" class="skip-to-content">Skip to main content</a>
+	{{ end }}
+    {{ partial "header.html" . }}
+	{{ if .Site.Params.showNavMenu }}
+		{{ partial "nav.html" . }}
+	{{ end }}
+    
+    <main>
+        {{ block "main" . }}{{ end }}
+    </main>
+    
+    {{ partial "footer.html" . }}
+    
+    {{ $script := resources.Get "js/main.js" | resources.Minify | resources.Fingerprint }}
+    <script src="{{ $script.Permalink }}"></script>
+	
+    {{ $navScript := resources.Get "js/navigation.js" | resources.Minify | resources.Fingerprint }}
+    <script src="{{ $navScript.Permalink }}"></script>
+	
+</body>
+</html>
