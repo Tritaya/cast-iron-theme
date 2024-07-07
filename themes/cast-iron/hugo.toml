@@ -15,26 +15,26 @@ title = 'My New Hugo Site Theme'
   
   affiliateDisclosure = "This is a fan website and is not endorsed by or affiliated with MasterClass Premium Cookware. The address above is the official headquarters of MasterClass Premium Cookware."
 
-[[params.footerColumns]]
-  title = "Shop"
-  links = [
-    {name = "Skillets", url = "/products/skillets"},
-    {name = "Dutch Ovens", url = "/products/dutch-ovens"}
-  ]
-
-[[params.footerColumns]]
-  title = "About"
-  links = [
-    {name = "Our Story", url = "/about"},
-    {name = "Blog", url = "/blog"}
-  ]
-
-[[params.footerColumns]]
-  title = "Support"
-  links = [
-    {name = "FAQs", url = "/faqs"},
-    {name = "Contact", url = "/contact"}
-  ]
+#[[params.footerColumns]]
+#  title = "Shop"
+#  links = [
+#    {name = "Skillets", url = "/products/skillets"},
+#    {name = "Dutch Ovens", url = "/products/dutch-ovens"}
+#  ]
+#
+#[[params.footerColumns]]
+#  title = "About"
+#  links = [
+#    {name = "Our Story", url = "/about"},
+#    {name = "Blog", url = "/blog"}
+#  ]
+#
+#[[params.footerColumns]]
+#  title = "Support"
+#  links = [
+#    {name = "FAQs", url = "/faqs"},
+#    {name = "Contact", url = "/contact"}
+#  ]
 
 #[[params.socialLinks]]
 #  name = "Facebook"
