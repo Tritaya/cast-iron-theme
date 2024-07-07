@@ -1,6 +1,7 @@
 baseURL = 'https://example.org/'
 languageCode = 'en-us'
 title = 'My New Hugo Site Theme'
+#theme = 'cast-iron'
 
 [params]
   description = "Durable and versatile cast iron cookware for every kitchen."
