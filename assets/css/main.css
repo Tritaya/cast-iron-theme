@@ -20,7 +20,6 @@ body {
   padding: 0 20px;
 }
 
-/* Header Styles */
 .site-header {
   background-color: #333;
   padding: 1rem 0;
@@ -40,69 +39,54 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
 }
 
 .logo {
   display: flex;
   align-items: center;
-  color: white;
-  text-decoration: none;
-  font-size: 1.5rem;
-  font-weight: bold;
 }
 
 .logo img {
-	max-height: 50px;
-	width: auto;
-	/* margin-left: 10px; */
+  max-height: 50px;
+  width: auto;
 }
 
 /* Navigation Styles */
 #main-nav {
-  position: fixed;
-  top: 60px; /* Adjust this value to match your header height */
-  left: 0;
-  right: 0;
-  background-color: #333;
-  padding: 1rem 0;
-  display: none;
-  z-index: 999;
-  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
-  transform: translateY(-100%);
-  opacity: 0;
+  flex-grow: 1;
+  display: flex;
+  justify-content: flex-end;
 }
 
-#main-nav.show {
-  display: block;
-  transform: translateY(0);
-  opacity: 1;
-}
-
-#main-nav ul {
+.nav-menu {
+  display: flex;
   list-style-type: none;
-  padding: 0;
   margin: 0;
+  padding: 0;
 }
 
-#main-nav ul li {
-  text-align: center;
-  margin: 0.5rem 0;
+.nav-menu li {
+  margin-left: 1.5rem;
 }
 
-#main-nav a {
+.nav-menu a {
   color: white;
   text-decoration: none;
   font-size: 1rem;
   transition: color 0.3s;
 }
 
-#main-nav a:hover,
-#main-nav a:focus {
+.nav-menu a:hover,
+.nav-menu a:focus,
+.nav-menu a.active {
   color: #4CAF50;
 }
 
 .nav-toggle {
-  display: block;
+  display: none;
   background: none;
   border: none;
   color: white;
@@ -110,29 +94,36 @@ body {
   cursor: pointer;
 }
 
-.nav-toggle.active {
-  color: #4CAF50;
-}
-
-@media (min-width: 769px) {
+@media (max-width: 768px) {
   .nav-toggle {
-    display: none;
+    display: block;
   }
 
   #main-nav {
-    position: static;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: #333;
+    padding: 1rem 0;
+    display: none;
+  }
+
+  #main-nav.show {
     display: block;
-    padding: 0;
-    background-color: transparent;
-    transform: none;
   }
 
-  #main-nav ul {
-    display: flex;
+  .no-nav-menu .nav-toggle {
+    display: none;
+  }
+  
+  .nav-menu {
+    flex-direction: column;
   }
 
-  #main-nav ul li {
-    margin-left: 1.5rem;
+  .nav-menu li {
+    margin: 0.5rem 0;
+    text-align: center;
   }
 }
 

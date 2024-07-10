@@ -1,8 +1,38 @@
-document.addEventListener("DOMContentLoaded", function() {
-  // Check for nav menu and add body class
-  if (document.getElementById('main-nav')) {
-    document.body.classList.add('has-nav-menu');
+document.addEventListener('DOMContentLoaded', function() {
+  const header = document.querySelector('.site-header');
+  const navToggle = document.querySelector('.nav-toggle');
+  const navMenu = document.querySelector('#main-nav');
+  let lastScrollTop = 0;
+  const scrollThreshold = 50; // Define the scroll threshold
+
+  // Handle navigation toggle
+  if (navToggle && navMenu) {
+    navToggle.addEventListener('click', function() {
+      navMenu.classList.toggle('show');
+      navToggle.classList.toggle('active');
+      document.body.classList.toggle('menu-open');
+    });
   }
+
+  // Handle header visibility on scroll
+  window.addEventListener('scroll', function() {
+    let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    
+    if (scrollTop > lastScrollTop && scrollTop > scrollThreshold) {
+      // Scrolling down & past the threshold
+      header.classList.add('hidden');
+      if (navMenu && navMenu.classList.contains('show')) {
+        navMenu.classList.remove('show');
+        navToggle.classList.remove('active');
+        document.body.classList.remove('menu-open');
+      }
+    } else {
+      // Scrolling up or above the threshold
+      header.classList.remove('hidden');
+    }
+    
+    lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+  }, false);
 
   // Lazy loading images
   var lazyImages = [].slice.call(document.querySelectorAll("img.lazy"));
@@ -31,15 +61,4 @@ document.addEventListener("DOMContentLoaded", function() {
       });
     });
   });
-
-  // Navigation menu toggle
-  const navToggle = document.querySelector('.nav-toggle');
-  const navMenu = document.querySelector('.nav-menu');
-  if (navToggle && navMenu) {
-    navToggle.addEventListener('click', function() {
-      navMenu.classList.toggle('show');
-      // Prevent body scrolling when menu is open
-      document.body.classList.toggle('nav-open');
-    });
-  }
 });
