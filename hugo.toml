@@ -8,13 +8,14 @@ title = 'My New Hugo Site Theme'
   og_image = "/images/og-image.jpg"
   showNavMenu = false
   logo = "/images/logo.png"
+  goatCounterToken = "goatcounter"
   
   contact_address1 = "The Hub Nobel Way"
   contact_address2 = "Birmingham, United Kingdom"
   contact_postcode = "B6 7EU"
   contact_phone = "+44 (0) 121 604 6000"
   
-  affiliateDisclosure = "This is a fan website and is not endorsed by or affiliated with MasterClass Premium Cookware. The address above is the official headquarters of MasterClass Premium Cookware."
+  affiliateDisclosure = "This is a fan website and is not endorsed by or affiliated with ____. The address above is the official headquarters of ____."
 
 #[[params.footerColumns]]
 #  title = "Shop"

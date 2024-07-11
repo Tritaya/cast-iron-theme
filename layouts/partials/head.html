@@ -24,3 +24,8 @@
 <!-- Load styles -->
 {{ $style := resources.Get "css/main.css" | resources.Minify | resources.Fingerprint }}
 <link rel="stylesheet" href="{{ $style.Permalink }}">
+
+{{ with .Site.Params.goatCounterToken }}
+<script data-goatcounter="https://{{ . }}.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+{{ end }}
