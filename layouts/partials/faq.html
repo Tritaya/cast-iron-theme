@@ -6,8 +6,13 @@
     <div class="faq-list">
       {{ range .Params.faq.questions }}
         <div class="faq-item">
-          <button class="faq-question">{{ .question }}</button>
-          <div class="faq-answer">
+          <h3 class="faq-question">
+            <button aria-expanded="false">
+              {{ .question }}
+              <span class="icon" aria-hidden="true"></span>
+            </button>
+          </h3>
+          <div class="faq-answer" hidden>
             <p>{{ .answer }}</p>
           </div>
         </div>
@@ -18,25 +23,13 @@
 
 <script>
   document.addEventListener('DOMContentLoaded', function() {
-    const faqQuestions = document.querySelectorAll('.faq-question');
-    faqQuestions.forEach(question => {
-      question.addEventListener('click', () => {
-        const answer = question.nextElementSibling;
-        const isOpen = answer.style.maxHeight;
-
-        // Close all open answers
-        document.querySelectorAll('.faq-answer').forEach(item => {
-          item.style.maxHeight = null;
-        });
-        document.querySelectorAll('.faq-question').forEach(item => {
-          item.classList.remove('active');
-        });
-
-        // Open the clicked answer if it was closed
-        if (!isOpen) {
-          answer.style.maxHeight = answer.scrollHeight + 'px';
-          question.classList.add('active');
-        }
+    const faqQuestions = document.querySelectorAll('.faq-question button');
+    faqQuestions.forEach(button => {
+      button.addEventListener('click', () => {
+        const expanded = button.getAttribute('aria-expanded') === 'true';
+        button.setAttribute('aria-expanded', !expanded);
+        const answer = button.closest('.faq-item').querySelector('.faq-answer');
+        answer.hidden = expanded;
       });
     });
   });
