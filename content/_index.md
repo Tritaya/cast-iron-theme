@@ -74,7 +74,18 @@ awards:
     - name: "Best Cookware 2023"
       image: "/images/durable-icon.svg"
     - name: "Sustainability Award"
-      image: "/images/durable-icon.svg"
+      image: "/images/durable-icon.svg"	  
+faq:
+  title: "Frequently Asked Questions"
+  questions:
+    - question: "How do I season my cast iron cookware?"
+      answer: "To season your cast iron, clean it thoroughly, apply a thin layer of oil, and bake it in the oven at 450°F for 1 hour. Repeat this process 3-4 times for the best results."
+    - question: "Can I use soap to clean my cast iron?"
+      answer: "While it's best to avoid soap for routine cleaning, a little mild soap is okay for tough messes. Just be sure to re-season your pan afterward."
+    - question: "How do I remove rust from my cast iron?"
+      answer: "To remove rust, scrub the affected area with steel wool, rinse, dry thoroughly, and re-season the pan immediately."
+    - question: "Can I use metal utensils with my cast iron cookware?"
+      answer: "Yes, you can use metal utensils with cast iron. The seasoning is resilient, but be gentle to avoid scratching the surface."
 ---
 
 ## Why Choose Our Cookware

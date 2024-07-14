@@ -1,0 +1,43 @@
+<div class="section faq">
+  <div class="container">
+    <div class="section-title">
+      <h2>{{ .Params.faq.title }}</h2>
+    </div>
+    <div class="faq-list">
+      {{ range .Params.faq.questions }}
+        <div class="faq-item">
+          <button class="faq-question">{{ .question }}</button>
+          <div class="faq-answer">
+            <p>{{ .answer }}</p>
+          </div>
+        </div>
+      {{ end }}
+    </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const faqQuestions = document.querySelectorAll('.faq-question');
+    faqQuestions.forEach(question => {
+      question.addEventListener('click', () => {
+        const answer = question.nextElementSibling;
+        const isOpen = answer.style.maxHeight;
+
+        // Close all open answers
+        document.querySelectorAll('.faq-answer').forEach(item => {
+          item.style.maxHeight = null;
+        });
+        document.querySelectorAll('.faq-question').forEach(item => {
+          item.classList.remove('active');
+        });
+
+        // Open the clicked answer if it was closed
+        if (!isOpen) {
+          answer.style.maxHeight = answer.scrollHeight + 'px';
+          question.classList.add('active');
+        }
+      });
+    });
+  });
+</script>

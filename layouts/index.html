@@ -157,6 +157,10 @@
 	  </div>
 	</section>
 	{{ end }}
+	
+	{{ if .Params.faq }}
+      {{ partial "faq.html" . }}
+    {{ end }}
 
 {{ end }}
 
