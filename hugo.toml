@@ -8,6 +8,7 @@ title = 'My New Hugo Site Theme'
   og_image = "/images/og-image.jpg"
   showNavMenu = false
   logo = "/images/logo.png"
+  logoText = "logoText"
   goatCounterToken = "goatcounter"
   
   contact_address1 = "The Hub Nobel Way"
