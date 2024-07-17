@@ -21,6 +21,11 @@
 <link rel="preload" href="{{ (resources.Get "css/main.css" | resources.Minify | resources.Fingerprint).Permalink }}" as="style">
 <link rel="preload" href="{{ (resources.Get "js/main.js" | resources.Minify | resources.Fingerprint).Permalink }}" as="script">
 
+{{ $favicon := (where (readDir "static/images") "Name" "like" ".*favicon.*") }}
+{{ with index $favicon 0 }}
+<link rel="icon" type="image/svg+xml" href="/images/{{ .Name }}">
+{{ end }}
+
 <!-- Load styles -->
 {{ $style := resources.Get "css/main.css" | resources.Minify | resources.Fingerprint }}
 <link rel="stylesheet" href="{{ $style.Permalink }}">
