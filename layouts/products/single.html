@@ -2,7 +2,7 @@
 <article class="product">
     <div class="container">
         <h1>{{ .Title }}</h1>
-        {{ with .Description }}<p class="description">{{ . }}</p>{{ end }}
+        {{ with .Description }}<p class="description">{{ . | markdownify }}</p>{{ end }}
         
         {{ $images := .Params.product_images }}
         {{ $intersperse := .Params.intersperse_images }}
