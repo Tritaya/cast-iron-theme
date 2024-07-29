@@ -20,7 +20,7 @@ productShowcase:
     - name: "10-inch Skillet"
       image: "/images/skillet.jpg"
       description: "Perfect for everyday cooking"
-      link: "#"
+      link: "products/10inch"
     - name: "Dutch Oven"
       image: "/images/dutch-oven.jpg"
       description: "Ideal for slow-cooking and baking"

@@ -18,7 +18,18 @@
 <meta property="twitter:image" content="{{ .Site.Params.og_image | absURL }}">
 
 <!-- Preload critical assets -->
-<link rel="preload" href="{{ (resources.Get "css/main.css" | resources.Minify | resources.Fingerprint).Permalink }}" as="style">
+{{ $mainStyle := resources.Get "css/main.css" | resources.Minify | resources.Fingerprint }}
+<link rel="preload" href="{{ $mainStyle.Permalink }}" as="style">
+
+{{ if or (eq .Type "products") (eq .Section "products") }}
+  {{ $productsStyle := resources.Get "css/products.css" | resources.Minify | resources.Fingerprint }}
+  <link rel="preload" href="{{ $productsStyle.Permalink }}" as="style">
+  <link rel="stylesheet" href="{{ $productsStyle.Permalink }}" integrity="{{ $productsStyle.Data.Integrity }}">
+{{ end }}
+
+<!-- Load CSS files -->
+<link rel="stylesheet" href="{{ $mainStyle.Permalink }}" integrity="{{ $mainStyle.Data.Integrity }}">
+
 <link rel="preload" href="{{ (resources.Get "js/main.js" | resources.Minify | resources.Fingerprint).Permalink }}" as="script">
 
 {{ $favicon := (where (readDir "static/images") "Name" "like" ".*favicon.*") }}

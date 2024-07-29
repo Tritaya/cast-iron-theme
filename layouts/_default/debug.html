@@ -1,0 +1,91 @@
+{{ define "main" }}
+{{ $home := .Site.GetPage "/" }}
+<style>
+  .debug-page ul { list-style-type: none; padding-left: 0; }
+  .param-exists { background-color: #ffffcc; padding: 2px 5px; }
+  .param-missing { background-color: #ffcccc; padding: 2px 5px; }
+</style>
+<div class="debug-page">
+  <h1>Debug Information</h1>
+  
+  <h2>Site Parameters</h2>
+  <ul>
+    <li>Site Title: <span class="param-exists">{{ .Site.Title }}</span></li>
+    <li>Base URL: <span class="param-exists">{{ .Site.BaseURL }}</span></li>
+    <li>Description: {{ if .Site.Params.description }}<span class="param-exists">{{ .Site.Params.description }}</span>{{ else }}<span class="param-missing">Not defined</span>{{ end }}</li>
+  </ul>
+  
+  <h2>Home Page Parameters</h2>
+  <ul>
+    <li>Title: <span class="param-exists">{{ $home.Title }}</span></li>
+    <li>Hero Title: {{ if $home.Params.heroTitle }}<span class="param-exists">{{ $home.Params.heroTitle }}</span>{{ else }}<span class="param-missing">Not defined</span>{{ end }}</li>
+    <li>Hero Subtitle: {{ if $home.Params.heroSubtitle }}<span class="param-exists">{{ $home.Params.heroSubtitle }}</span>{{ else }}<span class="param-missing">Not defined</span>{{ end }}</li>
+    <li>Hero Button Text: {{ if $home.Params.heroButtonText }}<span class="param-exists">{{ $home.Params.heroButtonText }}</span>{{ else }}<span class="param-missing">Not defined</span>{{ end }}</li>
+    <li>Hero Button Link: {{ if $home.Params.heroButtonLink }}<span class="param-exists">{{ $home.Params.heroButtonLink }}</span>{{ else }}<span class="param-missing">Not defined</span>{{ end }}</li>
+    <li>Non-Existing Parameter: {{ if $home.Params.nonExistingParam }}<span class="param-exists">{{ $home.Params.nonExistingParam }}</span>{{ else }}<span class="param-missing">Not defined</span>{{ end }}</li>
+  </ul>
+  
+  <h2>Features</h2>
+  {{ if $home.Params.features }}
+    <ul>
+    {{ range $home.Params.features }}
+      <li>
+        <strong>{{ .title }}</strong><br>
+        Icon: <span class="param-exists">{{ .icon }}</span><br>
+        Description: <span class="param-exists">{{ .description }}</span>
+      </li>
+    {{ end }}
+    </ul>
+  {{ else }}
+    <p class="param-missing">No features defined.</p>
+  {{ end }}
+  
+  <h2>Product Showcase</h2>
+  {{ if $home.Params.productShowcase }}
+    <h3>{{ $home.Params.productShowcase.title }}</h3>
+    <ul>
+    {{ range $home.Params.productShowcase.products }}
+      <li>
+        <strong>{{ .name }}</strong><br>
+        Image: <span class="param-exists">{{ .image }}</span><br>
+        Description: <span class="param-exists">{{ .description }}</span><br>
+        Link: <span class="param-exists">{{ .link }}</span>
+      </li>
+    {{ end }}
+    </ul>
+  {{ else }}
+    <p class="param-missing">No product showcase defined.</p>
+  {{ end }}
+  
+  <h2>Use Cases</h2>
+  {{ if $home.Params.useCases }}
+    <h3>{{ $home.Params.useCases.title }}</h3>
+    <ul>
+    {{ range $home.Params.useCases.cases }}
+      <li>
+        <strong>{{ .name }}</strong><br>
+        Image: <span class="param-exists">{{ .image }}</span><br>
+        Description: <span class="param-exists">{{ .description }}</span>
+      </li>
+    {{ end }}
+    </ul>
+  {{ else }}
+    <p class="param-missing">No use cases defined.</p>
+  {{ end }}
+  
+  <h2>FAQ</h2>
+  {{ if $home.Params.faq }}
+    <h3>{{ $home.Params.faq.title }}</h3>
+    <ul>
+    {{ range $home.Params.faq.questions }}
+      <li>
+        <strong>Q: {{ .question }}</strong><br>
+        A: <span class="param-exists">{{ .answer }}</span>
+      </li>
+    {{ end }}
+    </ul>
+  {{ else }}
+    <p class="param-missing">No FAQ defined.</p>
+  {{ end }}
+</div>
+{{ end }}

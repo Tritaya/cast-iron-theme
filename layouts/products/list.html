@@ -1,0 +1,31 @@
+{{ define "main" }}
+<section class="products-section">
+    <div class="container">
+        <h1 class="section-title">{{ .Title }}</h1>
+        {{ with .Content }}
+            <div class="section-content">
+                {{ . }}
+            </div>
+        {{ end }}
+        <div class="product-grid">
+            {{ range .Pages }}
+            <article class="product-card">
+                <a href="{{ .Permalink }}">
+                    {{ $productName := .Title }}
+                    {{ $altText := printf "Buy %s Online - %s" $productName .Description | truncate 125 }}
+                    {{ with .Params.image }}
+                        <img src="{{ . }}" alt="{{ $altText }}" class="product-image">
+                    {{ end }}
+                    <div class="product-details">
+                        <h2 class="product-title">{{ .Title }}</h2>
+                        {{ with .Description }}
+                            <p class="product-description">{{ . }}</p>
+                        {{ end }}
+                    </div>
+                </a>
+            </article>
+            {{ end }}
+        </div>
+    </div>
+</section>
+{{ end }}

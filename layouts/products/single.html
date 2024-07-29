@@ -1,0 +1,46 @@
+{{ define "main" }}
+<article class="product">
+    <div class="container">
+        <h1>{{ .Title }}</h1>
+        {{ with .Description }}<p class="description">{{ . }}</p>{{ end }}
+        
+        {{ $images := .Params.product_images }}
+        {{ $intersperse := .Params.intersperse_images }}
+        {{ $displayedImages := 0 }}
+        {{ $productName := .Title }}
+        {{ $baseAltText := printf "Buy %s Online - %s" $productName .Description | truncate 100 }}
+
+        {{ if and $intersperse $images (ge (len $images) 2) }}
+            {{ $paragraphs := split .Content "<p>" }}
+            {{ range $index, $paragraph := $paragraphs }}
+                {{ if and (gt $index 0) (lt $index (len $paragraphs)) }}
+                    <p>{{ $paragraph | safeHTML }}</p>
+                    {{ if eq $index 1 }}
+                        {{ $altText := printf "%s (Front View)" $baseAltText }}
+                        <img src="{{ index $images 0 }}" alt="{{ $altText }}" class="product-inline-image">
+                        {{ $displayedImages = add $displayedImages 1 }}
+                    {{ else if eq $index 3 }}
+                        {{ $altText := printf "%s (Side View)" $baseAltText }}
+                        <img src="{{ index $images 1 }}" alt="{{ $altText }}" class="product-inline-image">
+                        {{ $displayedImages = add $displayedImages 1 }}
+                    {{ end }}
+                {{ end }}
+            {{ end }}
+        {{ else }}
+            {{ .Content }}
+        {{ end }}
+
+        {{ if $images }}
+        <div class="product-image-gallery">
+            {{ range $index, $image := $images }}
+                {{ if or (not $intersperse) (ge $index $displayedImages) }}
+                    {{ $viewText := cond (eq $index 0) "Main" (printf "Additional View %d" (sub $index $displayedImages)) }}
+                    {{ $altText := printf "%s (%s)" $baseAltText $viewText }}
+                    <img src="{{ $image }}" alt="{{ $altText }}" class="product-gallery-image">
+                {{ end }}
+            {{ end }}
+        </div>
+        {{ end }}
+    </div>
+</article>
+{{ end }}
