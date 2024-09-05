@@ -54,6 +54,7 @@ body {
 }
 
 .logo img {
+  height: 32px;
   max-height: 50px;
   width: auto;
   margin-left: 10px;
