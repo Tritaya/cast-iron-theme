@@ -1,11 +1,62 @@
 {{ define "main" }}
-<article class="content">
-    <h1>{{ .Title }}</h1>
-    {{ if .Date }}
-        <time datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">
-            {{ .Date.Format "January 2, 2006" }}
-        </time>
-    {{ end }}
-    {{ .Content }}
+<article class="content-single">
+    <div class="container">
+        <header class="content-header">
+            <h1 class="content-title">{{ .Title }}</h1>
+            {{ with .Description }}
+                <div class="content-description">{{ . | markdownify }}</div>
+            {{ end }}
+            {{ with .Params.author }}
+                <p class="content-author">By {{ . }}</p>
+            {{ end }}
+            <time class="content-date" datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">
+                {{ .Date.Format "January 2, 2006" }}
+            </time>
+        </header>
+
+        {{ with .Params.image }}
+            {{ $imageResource := resources.Get . }}
+            {{ with $imageResource }}
+                {{ $resizedImage := .Resize "800x" }}
+                {{ $imageAlt := printf "%s - %s" $.Title ($.Description | plainify | truncate 100) }}
+                <img src="{{ $resizedImage.RelPermalink }}" alt="{{ $imageAlt }}" class="content-featured-image">
+            {{ end }}
+        {{ end }}
+
+        <div class="content-body">
+            {{ .Content }}
+        </div>
+
+        {{ if .Params.tags }}
+            <div class="content-tags">
+                <h2>Tags:</h2>
+                <ul>
+                    {{ range .Params.tags }}
+                        <li><a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">{{ . }}</a></li>
+                    {{ end }}
+                </ul>
+            </div>
+        {{ end }}
+
+        {{ if .Params.categories }}
+            <div class="content-categories">
+                <h2>Categories:</h2>
+                <ul>
+                    {{ range .Params.categories }}
+                        <li><a href="{{ "/categories/" | relLangURL }}{{ . | urlize }}">{{ . }}</a></li>
+                    {{ end }}
+                </ul>
+            </div>
+        {{ end }}
+
+        <nav class="content-navigation">
+            {{ with .PrevInSection }}
+                <a href="{{ .Permalink }}" class="prev-link">← {{ .Title }}</a>
+            {{ end }}
+            {{ with .NextInSection }}
+                <a href="{{ .Permalink }}" class="next-link">{{ .Title }} →</a>
+            {{ end }}
+        </nav>
+    </div>
 </article>
 {{ end }}
