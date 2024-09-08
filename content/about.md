@@ -2,6 +2,19 @@
 title: "About Us"
 date: 2023-07-02T12:00:00-00:00
 draft: false
+author: "John"
+description: "An outline of **about** us"
+image: "/images/products/10-inch-skillet.jpg"
+images: [
+"/images/products/10-inch-skillet.jpg",
+"/images/products/10-inch-skillet.jpg",
+"/images/products/10-inch-skillet.jpg",
+]
+intersperse_images: true
+inline_image_count: 1
+seo_keywords: ["one_key"]
+tags: ["one_tag", "two_tag"]
+categories: ["one_cat", "two_cat"]
 ---
 
 # About Cast Iron Cookware3

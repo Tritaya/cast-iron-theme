@@ -2,45 +2,38 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>{{ .Title }} | {{ .Site.Title }}</title>
 <meta name="description" content="{{ .Description | default .Site.Params.description }}">
-
 <!-- Open Graph / Facebook -->
 <meta property="og:type" content="website">
 <meta property="og:url" content="{{ .Permalink }}">
 <meta property="og:title" content="{{ .Title }} | {{ .Site.Title }}">
 <meta property="og:description" content="{{ .Description | default .Site.Params.description }}">
 <meta property="og:image" content="{{ .Site.Params.og_image | absURL }}">
-
 <!-- Twitter -->
 <meta property="twitter:card" content="summary_large_image">
 <meta property="twitter:url" content="{{ .Permalink }}">
 <meta property="twitter:title" content="{{ .Title }} | {{ .Site.Title }}">
 <meta property="twitter:description" content="{{ .Description | default .Site.Params.description }}">
 <meta property="twitter:image" content="{{ .Site.Params.og_image | absURL }}">
-
 <!-- Preload critical assets -->
 {{ $mainStyle := resources.Get "css/main.css" | resources.Minify | resources.Fingerprint }}
 <link rel="preload" href="{{ $mainStyle.Permalink }}" as="style">
-
 {{ if or (eq .Type "products") (eq .Section "products") }}
   {{ $productsStyle := resources.Get "css/products.css" | resources.Minify | resources.Fingerprint }}
   <link rel="preload" href="{{ $productsStyle.Permalink }}" as="style">
   <link rel="stylesheet" href="{{ $productsStyle.Permalink }}" integrity="{{ $productsStyle.Data.Integrity }}">
 {{ end }}
-
+<!-- CHANGE: Define and preload single.css for all pages -->
+{{ $singleStyle := resources.Get "css/single.css" | resources.Minify | resources.Fingerprint }}
+<link rel="preload" href="{{ $singleStyle.Permalink }}" as="style">
 <!-- Load CSS files -->
 <link rel="stylesheet" href="{{ $mainStyle.Permalink }}" integrity="{{ $mainStyle.Data.Integrity }}">
-
+<!-- CHANGE: Load single.css for all pages -->
+<link rel="stylesheet" href="{{ $singleStyle.Permalink }}" integrity="{{ $singleStyle.Data.Integrity }}">
 <link rel="preload" href="{{ (resources.Get "js/main.js" | resources.Minify | resources.Fingerprint).Permalink }}" as="script">
-
 {{ $favicon := (where (readDir "static/images") "Name" "like" ".*favicon.*") }}
 {{ with index $favicon 0 }}
 <link rel="icon" type="image/svg+xml" href="/images/{{ .Name }}">
 {{ end }}
-
-<!-- Load styles -->
-{{ $style := resources.Get "css/main.css" | resources.Minify | resources.Fingerprint }}
-<link rel="stylesheet" href="{{ $style.Permalink }}">
-
 {{ with .Site.Params.goatCounterToken }}
 <script data-goatcounter="https://{{ . }}.goatcounter.com/count"
         async src="//gc.zgo.at/count.js"></script>

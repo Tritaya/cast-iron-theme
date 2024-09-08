@@ -3,29 +3,48 @@
     <div class="container">
         <header class="content-header">
             <h1 class="content-title">{{ .Title }}</h1>
-            {{ with .Description }}
-                <div class="content-description">{{ . | markdownify }}</div>
-            {{ end }}
-            {{ with .Params.author }}
-                <p class="content-author">By {{ . }}</p>
-            {{ end }}
-            <time class="content-date" datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">
-                {{ .Date.Format "January 2, 2006" }}
-            </time>
+            {{ with .Description }}<div class="content-description">{{ . | markdownify }}</div>{{ end }}
+            <!-- {{ with .Params.author }}<p class="content-author">By {{ . }}</p>{{ end }} -->
+            <!-- <time class="content-date" datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}"> -->
+                <!-- {{ .Date.Format "January 2, 2006" }} -->
+            <!-- </time> -->
         </header>
-
-        {{ with .Params.image }}
-            {{ $imageResource := resources.Get . }}
-            {{ with $imageResource }}
-                {{ $resizedImage := .Resize "800x" }}
-                {{ $imageAlt := printf "%s - %s" $.Title ($.Description | plainify | truncate 100) }}
-                <img src="{{ $resizedImage.RelPermalink }}" alt="{{ $imageAlt }}" class="content-featured-image">
-            {{ end }}
-        {{ end }}
+        
+        {{ $images := .Params.images }}
+        {{ $intersperse := .Params.intersperse_images }}
+        {{ $inlineImageCount := .Params.inline_image_count | default 2 }}
+        {{ $displayedImages := 0 }}
+        {{ $seoKeywords := .Params.seo_keywords }}
 
         <div class="content-body">
-            {{ .Content }}
+            {{ if and $intersperse $images (gt (len $images) 0) }}
+                {{ $paragraphs := split .Content "<p>" }}
+                {{ range $index, $paragraph := $paragraphs }}
+                    {{ if and (gt $index 0) (lt $index (len $paragraphs)) }}
+                        <p>{{ $paragraph | safeHTML }}</p>
+                        {{ if and (lt $displayedImages $inlineImageCount) (lt $displayedImages (len $images)) }}
+                            {{ $imageIndex := $displayedImages }}
+                            {{ $altText := partial "smart-alt-text.html" (dict "title" $.Title "description" $.Description "keywords" $seoKeywords "index" $imageIndex) }}
+                            <img src="{{ index $images $imageIndex }}" alt="{{ $altText }}" class="content-inline-image">
+                            {{ $displayedImages = add $displayedImages 1 }}
+                        {{ end }}
+                    {{ end }}
+                {{ end }}
+            {{ else }}
+                {{ .Content }}
+            {{ end }}
         </div>
+
+        {{ if $images }}
+        <div class="content-image-gallery">
+            {{ range $index, $image := $images }}
+                {{ if or (not $intersperse) (ge $index $displayedImages) }}
+                    {{ $altText := partial "smart-alt-text.html" (dict "title" $.Title "description" $.Description "keywords" $seoKeywords "index" $index) }}
+                    <img src="{{ $image }}" alt="{{ $altText }}" class="content-gallery-image">
+                {{ end }}
+            {{ end }}
+        </div>
+        {{ end }}
 
         {{ if .Params.tags }}
             <div class="content-tags">
