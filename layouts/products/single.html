@@ -6,22 +6,21 @@
         
         {{ $images := .Params.product_images }}
         {{ $intersperse := .Params.intersperse_images }}
+        {{ $inlineImageCount := .Params.inline_image_count | default 2 }}
         {{ $displayedImages := 0 }}
         {{ $productName := .Title }}
         {{ $baseAltText := printf "Buy %s Online - %s" $productName .Description | truncate 100 }}
 
-        {{ if and $intersperse $images (ge (len $images) 2) }}
+        {{ if and $intersperse $images (gt (len $images) 0) }}
             {{ $paragraphs := split .Content "<p>" }}
             {{ range $index, $paragraph := $paragraphs }}
                 {{ if and (gt $index 0) (lt $index (len $paragraphs)) }}
                     <p>{{ $paragraph | safeHTML }}</p>
-                    {{ if eq $index 1 }}
-                        {{ $altText := printf "%s (Front View)" $baseAltText }}
-                        <img src="{{ index $images 0 }}" alt="{{ $altText }}" class="product-inline-image">
-                        {{ $displayedImages = add $displayedImages 1 }}
-                    {{ else if eq $index 3 }}
-                        {{ $altText := printf "%s (Side View)" $baseAltText }}
-                        <img src="{{ index $images 1 }}" alt="{{ $altText }}" class="product-inline-image">
+                    {{ if and (lt $displayedImages $inlineImageCount) (lt $displayedImages (len $images)) }}
+                        {{ $imageIndex := $displayedImages }}
+                        {{ $viewText := cond (eq $imageIndex 0) "Front View" (printf "View %d" (add $imageIndex 1)) }}
+                        {{ $altText := printf "%s (%s)" $baseAltText $viewText }}
+                        <img src="{{ index $images $imageIndex }}" alt="{{ $altText }}" class="product-inline-image">
                         {{ $displayedImages = add $displayedImages 1 }}
                     {{ end }}
                 {{ end }}
