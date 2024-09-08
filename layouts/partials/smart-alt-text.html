@@ -1,0 +1,15 @@
+{{ $keywords := .keywords }}
+{{ $index := .index }}
+
+{{ $altText := "Image" }}
+
+{{ with $keywords }}
+    {{ $keywordCount := len . }}
+    {{ if gt $keywordCount 0 }}
+        {{ $keywordIndex := mod $index $keywordCount }}
+        {{ $keyword := index . $keywordIndex }}
+        {{ $altText = printf "Image related to %s" $keyword }}
+    {{ end }}
+{{ end }}
+
+{{ return $altText }}
